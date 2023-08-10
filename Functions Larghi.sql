@@ -23,7 +23,7 @@ DETERMINISTIC
 BEGIN
 	DECLARE min_price DECIMAL(10,2) DEFAULT 0;
     DECLARE commission DECIMAL(10,2) DEFAULT 0;
-    SELECT min_payment INTO min_price FROM coverage WHERE coverage_id = policy_coverage_number;
+    SELECT price INTO min_price FROM coverage WHERE coverage_id = policy_coverage_number;
     SET commission = min_price*0.05;
     RETURN commission;
 END$$
